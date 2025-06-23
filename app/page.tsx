@@ -274,7 +274,7 @@ export default function Home() {
             </div>
             <p className="text-center mt-4">
               <a 
-                href="https://note.com/preview/ne51daec0916b?prev_access_key=734082e66adf455ec9a9a994af3d1f1d" 
+                href="https://note.com/maddogmtg/n/ne51daec0916b" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 underline"
