@@ -12,7 +12,7 @@ const GoogleAnalytics = () => {
   return (
     <>
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=G-CW3CH4F4EG`}
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -20,7 +20,7 @@ const GoogleAnalytics = () => {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_TRACKING_ID}', {
+          gtag('config', 'G-CW3CH4F4EG', {
             page_title: 'AFネメシス コア獲得シミュレータ',
             page_location: window.location.href,
           });
