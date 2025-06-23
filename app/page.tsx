@@ -41,7 +41,7 @@ export default function Home() {
     { id: 'five-two', name: '5コスト2コア', cost: 5, cores: 2, image: '/five-two.png', count: 3 },
   ]);
 
-  const [playStrategy, setPlayStrategy] = useState<PlayStrategy>('greedy');
+  const [playStrategy, setPlayStrategy] = useState<PlayStrategy>('highCostFirst');
   const [mulliganStrategy, setMulliganStrategy] = useState<MulliganStrategy>('none');
   const [displayMode, setDisplayMode] = useState<DisplayMode>('normal');
   const [results, setResults] = useState<number[][]>([]);
@@ -272,6 +272,16 @@ export default function Home() {
                 </ul>
               </div>
             </div>
+            <p className="text-center mt-4">
+              <a 
+                href="https://note.com/preview/ne51daec0916b?prev_access_key=734082e66adf455ec9a9a994af3d1f1d" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 underline"
+              >
+                このページについて
+              </a>
+            </p>
           </div>
         </div>
 
@@ -328,8 +338,8 @@ export default function Home() {
                 onChange={(e) => setPlayStrategy(e.target.value as PlayStrategy)}
                 className="w-full border rounded-lg px-3 py-2 text-sm text-black bg-white"
               >
-                <option value="greedy" className="text-black">貪欲方</option>
                 <option value="highCostFirst" className="text-black">コストが高い順</option>
+                <option value="greedy" className="text-black">貪欲方</option>
               </select>
             </div>
             <div>
@@ -390,6 +400,7 @@ export default function Home() {
                     <th className="border border-gray-300 px-3 py-2 text-sm font-medium text-gray-800 whitespace-nowrap">
                       <div className="text-center">
                         <div>ターン</div>
+                        <div>/</div>
                         <div className="text-xs mt-1">
                           {displayMode === 'cumulative' ? 'コア数以上' : 'コア数'}
                         </div>
