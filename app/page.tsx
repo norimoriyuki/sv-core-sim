@@ -194,9 +194,6 @@ export default function Home() {
     // 0-1の範囲に正規化
     const normalized = value / maxValue;
     
-    // 赤の強度を計算（0-255）
-    const redIntensity = Math.round(normalized * 255);
-    
     return `bg-red-${Math.min(9, Math.max(1, Math.ceil(normalized * 9)))}00`;
   };
 
@@ -242,7 +239,7 @@ export default function Home() {
           <h2 className="text-lg font-semibold mb-4 text-blue-800">シミュレータについて</h2>
           <div className="space-y-3 text-sm text-blue-700">
             <p>
-              <strong>概要:</strong> ShadowVerseの「コア」ギミックをカウントするシミュレータです。10,000回のランダムシミュレーションを行い、各ターンでのコア獲得確率分布を計算します。
+              AFネメシスのコア数をシミュレート。10,000回自動で一人回しして分布を出力。結果はあくまで目安程度に。
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
