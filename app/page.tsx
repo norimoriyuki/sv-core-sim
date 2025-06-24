@@ -132,11 +132,14 @@ export default function Home() {
       }
       
       // カードをプレイ
-      const { playedCards } = playCards(hand, turn, strategy);
+      const { playedCards, remainingHand } = playCards(hand, turn, strategy);
       
       // プレイしたカードのコアを加算
       const turnCores = playedCards.reduce((sum, card) => sum + card.cores, 0);
       totalCores += turnCores;
+      
+      // 手札を更新（プレイしたカードは削除済み、残りは次ターンに持ち越し）
+      hand = remainingHand;
       
       // 30コアまで記録
       coresByTurn.push(Math.min(totalCores, 30));
@@ -287,7 +290,12 @@ export default function Home() {
 
         {/* カード選択セクション */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <h2 className="text-xl font-semibold mb-4 text-gray-700">デッキ構成</h2>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-semibold text-gray-700">デッキ構成</h2>
+            <div className="text-sm text-gray-600">
+              デッキコア数合計: {cards.reduce((sum, card) => sum + (card.cores * card.count), 0)}コア
+            </div>
+          </div>
           <div className="space-y-6">
             {Object.entries(cardsByCost).map(([cost, costCards]) => (
               <div key={cost} className="border-b border-gray-200 pb-4 last:border-b-0">
